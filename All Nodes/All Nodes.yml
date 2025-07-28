@@ -1,0 +1,1446 @@
+app:
+  description: 'A workflow containing all Nodes (Except for VariableAssignerV1) '
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: All Nodes
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.0.26@c1e643ac6a7732f6333a783320b4d3026fa5e31d8e7026375b98d44418d33f26
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/jina:0.0.7@2c6439d59e51b63c8cccf9c80f59707bab5d84e595b1dad70209ced3aa032599
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables:
+  - description: conversation variable a
+    id: 3764baf1-a2c9-4458-80a2-42d6f0111418
+    name: conv_a
+    selector:
+    - conversation
+    - conv_a
+    value: a
+    value_type: string
+  environment_variables:
+  - description: ''
+    id: fefdf099-b2c6-4c24-bc1c-7b0387f464bc
+    name: env1
+    selector:
+    - env
+    - env1
+    value: env_value_1
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1747813693182'
+        sourceType: loop-start
+        targetType: code
+      id: 1747813693182start-source-1747813696434-target
+      selected: false
+      source: 1747813693182start
+      sourceHandle: source
+      target: '1747813696434'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1747813693182'
+        sourceType: code
+        targetType: template-transform
+      id: 1747813696434-source-1747813699279-target
+      selected: false
+      source: '1747813696434'
+      sourceHandle: source
+      target: '1747813699279'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1747228642872-source-1747736480496-target
+      selected: false
+      source: '1747228642872'
+      sourceHandle: source
+      target: '1747736480496'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: iteration
+        targetType: answer
+      id: 1747813842812-source-answer-target
+      selected: false
+      source: '1747813842812'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: 1747228642872-source-1747813890629-target
+      selected: false
+      source: '1747228642872'
+      sourceHandle: source
+      target: '1747813890629'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1747813842812'
+        sourceType: iteration-start
+        targetType: template-transform
+      id: 1747813842812start-source-1747813985528-target
+      selected: false
+      source: 1747813842812start
+      sourceHandle: source
+      target: '1747813985528'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: knowledge-retrieval
+      id: 1747228642872-source-1747814033379-target
+      selected: false
+      source: '1747228642872'
+      sourceHandle: source
+      target: '1747814033379'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: agent
+      id: 1747228642872-source-1747814095146-target
+      selected: false
+      source: '1747228642872'
+      sourceHandle: source
+      target: '1747814095146'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: agent
+        targetType: answer
+      id: 1747814095146-source-answer-target
+      selected: false
+      source: '1747814095146'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: question-classifier
+      id: 1747228642872-source-1747814116329-target
+      selected: false
+      source: '1747228642872'
+      sourceHandle: source
+      target: '1747814116329'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: answer
+      id: 1747814116329-1-answer-target
+      selected: false
+      source: '1747814116329'
+      sourceHandle: '1'
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: answer
+      id: 1747814116329-2-answer-target
+      selected: false
+      source: '1747814116329'
+      sourceHandle: '2'
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1747814160742-true-answer-target
+      selected: false
+      source: '1747814160742'
+      sourceHandle: 'true'
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1747814160742-false-answer-target
+      selected: false
+      source: '1747814160742'
+      sourceHandle: 'false'
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: 1747228642872-source-1747814259670-target
+      selected: false
+      source: '1747228642872'
+      sourceHandle: source
+      target: '1747814259670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1747814259670-source-1747814213322-target
+      selected: false
+      source: '1747814259670'
+      sourceHandle: source
+      target: '1747814213322'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: 1747228642872-source-1747814304087-target
+      selected: false
+      source: '1747228642872'
+      sourceHandle: source
+      target: '1747814304087'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1747814304087-source-1747814213322-target
+      selected: false
+      source: '1747814304087'
+      sourceHandle: source
+      target: '1747814213322'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: answer
+      id: 1747814213322-source-answer-target
+      selected: false
+      source: '1747814213322'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: document-extractor
+      id: 1747814033379-source-1747814413020-target
+      selected: false
+      source: '1747814033379'
+      sourceHandle: source
+      target: '1747814413020'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: parameter-extractor
+      id: 1747736480496-source-1747814521403-target
+      selected: false
+      source: '1747736480496'
+      sourceHandle: source
+      target: '1747814521403'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: parameter-extractor
+        targetType: answer
+      id: 1747814521403-source-answer-target
+      selected: false
+      source: '1747814521403'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: http-request
+      id: 1747228642872-source-1747814635687-target
+      selected: false
+      source: '1747228642872'
+      sourceHandle: source
+      target: '1747814635687'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: if-else
+      id: 1747814635687-source-1747814160742-target
+      selected: false
+      source: '1747814635687'
+      sourceHandle: source
+      target: '1747814160742'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: list-operator
+      id: 1747813890629-source-1747814691972-target
+      selected: false
+      source: '1747813890629'
+      sourceHandle: source
+      target: '1747814691972'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: list-operator
+        targetType: iteration
+      id: 1747814691972-source-1747813842812-target
+      selected: false
+      source: '1747814691972'
+      sourceHandle: source
+      target: '1747813842812'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1747829548239-source-answer-target
+      selected: false
+      source: '1747829548239'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: 1747228642872-source-1747829667553-target
+      source: '1747228642872'
+      sourceHandle: source
+      target: '1747829667553'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: loop
+      id: 1747829667553-source-1747813693182-target
+      source: '1747829667553'
+      sourceHandle: source
+      target: '1747813693182'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: assigner
+      id: 1747814413020-source-1747893904496-target
+      source: '1747814413020'
+      sourceHandle: source
+      target: '1747893904496'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: assigner
+        targetType: answer
+      id: 1747893904496-source-answer-target
+      source: '1747893904496'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: loop
+        targetType: llm
+      id: 1747813693182-source-1747829548239-target
+      source: '1747813693182'
+      sourceHandle: source
+      target: '1747829548239'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: Start Input
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: start_input
+      height: 90
+      id: '1747228642872'
+      position:
+        x: -149.56376829070769
+        y: 289.4265374093339
+      positionAbsolute:
+        x: -149.56376829070769
+        y: 289.4265374093339
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - _parentOutputVarMap:
+        1747229171606.result:
+          type: string
+          variable: result
+        llm.text:
+          type: string
+          variable: text
+      data:
+        answer: OK
+        desc: ''
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 102
+      id: answer
+      position:
+        x: 5222
+        y: 391
+      positionAbsolute:
+        x: 5222
+        y: 391
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: ed296921-8620-4934-b61f-07df194cfc10
+          role: system
+          text: '{{#sys.query#}}'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1747736480496'
+      position:
+        x: 950
+        y: 315.31323896258135
+      positionAbsolute:
+        x: 950
+        y: 315.31323896258135
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        break_conditions: []
+        desc: ''
+        error_handle_mode: terminated
+        height: 168
+        logical_operator: and
+        loop_count: 10
+        selected: false
+        start_node_id: 1747813693182start
+        title: Loop
+        type: loop
+        width: 827
+      height: 168
+      id: '1747813693182'
+      position:
+        x: 950
+        y: -553
+      positionAbsolute:
+        x: 950
+        y: -553
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 827
+      zIndex: 1
+    - data:
+        desc: ''
+        isInLoop: true
+        selected: false
+        title: ''
+        type: loop-start
+      draggable: false
+      height: 48
+      id: 1747813693182start
+      parentId: '1747813693182'
+      position:
+        x: 60
+        y: 63
+      positionAbsolute:
+        x: 1010
+        y: -490
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-loop-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "\ndef main(workflow_id: str) -> dict:\n    return {\n        \"reversed_workflow_id\"\
+          : workflow_id[::-1],\n    }\n"
+        code_language: python3
+        desc: ''
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1747813693182'
+        outputs:
+          reversed_workflow_id:
+            children: null
+            type: string
+        selected: false
+        title: Reverse Workflow ID
+        type: code
+        variables:
+        - value_selector:
+          - sys
+          - workflow_id
+          variable: workflow_id
+      height: 54
+      id: '1747813696434'
+      parentId: '1747813693182'
+      position:
+        x: 201.46126807067822
+        y: 65
+      positionAbsolute:
+        x: 1151.4612680706782
+        y: -488
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: false
+        isInLoop: true
+        loop_id: '1747813693182'
+        selected: false
+        template: '{{workflow_id}}: {{ reversed_workflow_id }}
+
+          '
+        title: Map workflow id to reversed
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1747813696434'
+          - reversed_workflow_id
+          variable: reversed_workflow_id
+        - value_selector:
+          - sys
+          - workflow_id
+          variable: workflow_id
+      height: 54
+      id: '1747813699279'
+      parentId: '1747813693182'
+      position:
+        x: 508
+        y: 60
+      positionAbsolute:
+        x: 1458
+        y: -493
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 174
+        is_parallel: false
+        iterator_selector:
+        - '1747813890629'
+        - ascii_chars
+        output_selector:
+        - '1747813985528'
+        - output
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1747813842812start
+        title: Iteration
+        type: iteration
+        width: 508
+      height: 174
+      id: '1747813842812'
+      position:
+        x: 1434
+        y: -329
+      positionAbsolute:
+        x: 1434
+        y: -329
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 508
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1747813842812start
+      parentId: '1747813842812'
+      position:
+        x: 60
+        y: 63
+      positionAbsolute:
+        x: 1494
+        y: -266
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"ascii_chars\": [chr(ord('A')\
+          \ + i) for i in range(7)],\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          ascii_chars:
+            children: null
+            type: array[string]
+        selected: false
+        title: Generate first 7 Letters
+        type: code
+        variables: []
+      height: 54
+      id: '1747813890629'
+      position:
+        x: 666
+        y: -329
+      positionAbsolute:
+        x: 666
+        y: -329
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1747813842812'
+        selected: false
+        template: '{{ index }}: {{ item }}'
+        title: Template 2
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1747813842812'
+          - item
+          variable: item
+        - value_selector:
+          - '1747813842812'
+          - index
+          variable: index
+        - value_selector:
+          - '1747228642872'
+          - start_input
+          variable: start_input
+      height: 54
+      id: '1747813985528'
+      parentId: '1747813842812'
+      position:
+        x: 204
+        y: 60
+      positionAbsolute:
+        x: 1638
+        y: -269
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        dataset_ids: []
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: reranking_model
+          reranking_model:
+            model: jina-reranker-v2-base-multilingual
+            provider: langgenius/jina/jina
+          top_k: 4
+        query_variable_selector:
+        - '1747228642872'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: Knowledge Retrieval
+        type: knowledge-retrieval
+      height: 54
+      id: '1747814033379'
+      position:
+        x: 801.9812180306328
+        y: 155.863375749176
+      positionAbsolute:
+        x: 801.9812180306328
+        y: 155.863375749176
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: You may use the "Current Time" tool to get the current time.
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: gpt-4o
+              model_type: llm
+              provider: langgenius/openai/openai
+              type: model-selector
+          query:
+            type: constant
+            value: Give me the current time.
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: A tool for getting the current time.
+              parameters: {}
+              provider_name: time
+              schemas:
+              - auto_generate: null
+                default: '%Y-%m-%d %H:%M:%S'
+                form: form
+                human_description:
+                  en_US: Time format in strftime standard.
+                  ja_JP: Time format in strftime standard.
+                  pt_BR: Time format in strftime standard.
+                  zh_Hans: strftime 标准的时间格式。
+                label:
+                  en_US: Format
+                  ja_JP: Format
+                  pt_BR: Format
+                  zh_Hans: 格式
+                llm_description: null
+                max: null
+                min: null
+                name: format
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: UTC
+                form: form
+                human_description:
+                  en_US: Timezone
+                  ja_JP: Timezone
+                  pt_BR: Timezone
+                  zh_Hans: 时区
+                label:
+                  en_US: Timezone
+                  ja_JP: Timezone
+                  pt_BR: Timezone
+                  zh_Hans: 时区
+                llm_description: null
+                max: null
+                min: null
+                name: timezone
+                options:
+                - label:
+                    en_US: UTC
+                    ja_JP: UTC
+                    pt_BR: UTC
+                    zh_Hans: UTC
+                  value: UTC
+                - label:
+                    en_US: America/New_York
+                    ja_JP: America/New_York
+                    pt_BR: America/New_York
+                    zh_Hans: 美洲/纽约
+                  value: America/New_York
+                - label:
+                    en_US: America/Los_Angeles
+                    ja_JP: America/Los_Angeles
+                    pt_BR: America/Los_Angeles
+                    zh_Hans: 美洲/洛杉矶
+                  value: America/Los_Angeles
+                - label:
+                    en_US: America/Chicago
+                    ja_JP: America/Chicago
+                    pt_BR: America/Chicago
+                    zh_Hans: 美洲/芝加哥
+                  value: America/Chicago
+                - label:
+                    en_US: America/Sao_Paulo
+                    ja_JP: America/Sao_Paulo
+                    pt_BR: América/São Paulo
+                    zh_Hans: 美洲/圣保罗
+                  value: America/Sao_Paulo
+                - label:
+                    en_US: Asia/Shanghai
+                    ja_JP: Asia/Shanghai
+                    pt_BR: Asia/Shanghai
+                    zh_Hans: 亚洲/上海
+                  value: Asia/Shanghai
+                - label:
+                    en_US: Asia/Ho_Chi_Minh
+                    ja_JP: Asia/Ho_Chi_Minh
+                    pt_BR: Ásia/Ho Chi Minh
+                    zh_Hans: 亚洲/胡志明市
+                  value: Asia/Ho_Chi_Minh
+                - label:
+                    en_US: Asia/Tokyo
+                    ja_JP: Asia/Tokyo
+                    pt_BR: Asia/Tokyo
+                    zh_Hans: 亚洲/东京
+                  value: Asia/Tokyo
+                - label:
+                    en_US: Asia/Dubai
+                    ja_JP: Asia/Dubai
+                    pt_BR: Asia/Dubai
+                    zh_Hans: 亚洲/迪拜
+                  value: Asia/Dubai
+                - label:
+                    en_US: Asia/Kolkata
+                    ja_JP: Asia/Kolkata
+                    pt_BR: Asia/Kolkata
+                    zh_Hans: 亚洲/加尔各答
+                  value: Asia/Kolkata
+                - label:
+                    en_US: Asia/Seoul
+                    ja_JP: Asia/Seoul
+                    pt_BR: Asia/Seoul
+                    zh_Hans: 亚洲/首尔
+                  value: Asia/Seoul
+                - label:
+                    en_US: Asia/Singapore
+                    ja_JP: Asia/Singapore
+                    pt_BR: Asia/Singapore
+                    zh_Hans: 亚洲/新加坡
+                  value: Asia/Singapore
+                - label:
+                    en_US: Europe/London
+                    ja_JP: Europe/London
+                    pt_BR: Europe/London
+                    zh_Hans: 欧洲/伦敦
+                  value: Europe/London
+                - label:
+                    en_US: Europe/Berlin
+                    ja_JP: Europe/Berlin
+                    pt_BR: Europe/Berlin
+                    zh_Hans: 欧洲/柏林
+                  value: Europe/Berlin
+                - label:
+                    en_US: Europe/Moscow
+                    ja_JP: Europe/Moscow
+                    pt_BR: Europe/Moscow
+                    zh_Hans: 欧洲/莫斯科
+                  value: Europe/Moscow
+                - label:
+                    en_US: Australia/Sydney
+                    ja_JP: Australia/Sydney
+                    pt_BR: Australia/Sydney
+                    zh_Hans: 澳大利亚/悉尼
+                  value: Australia/Sydney
+                - label:
+                    en_US: Pacific/Auckland
+                    ja_JP: Pacific/Auckland
+                    pt_BR: Pacific/Auckland
+                    zh_Hans: 太平洋/奥克兰
+                  value: Pacific/Auckland
+                - label:
+                    en_US: Africa/Cairo
+                    ja_JP: Africa/Cairo
+                    pt_BR: Africa/Cairo
+                    zh_Hans: 非洲/开罗
+                  value: Africa/Cairo
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: select
+              settings:
+                format:
+                  value: '%Y-%m-%d %H:%M:%S'
+                timezone:
+                  value: UTC
+              tool_description: A tool for getting the current time.
+              tool_label: Current Time
+              tool_name: current_time
+              type: builtin
+        agent_strategy_label: ReAct
+        agent_strategy_name: ReAct
+        agent_strategy_provider_name: langgenius/agent/agent
+        desc: ''
+        output_schema: null
+        plugin_unique_identifier: langgenius/agent:0.0.15@3cb96179914f8c4025282bcb1cc2fd5a951f6be0877567b02daee01e28ca4bf3
+        selected: false
+        title: Agent
+        type: agent
+      height: 198
+      id: '1747814095146'
+      position:
+        x: 950
+        y: 439.7352325372109
+      positionAbsolute:
+        x: 950
+        y: 439.7352325372109
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: a
+        - id: '2'
+          name: b
+        desc: ''
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        query_variable_selector:
+        - '1747228642872'
+        - sys.query
+        selected: false
+        title: Question Classifier
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 172
+      id: '1747814116329'
+      position:
+        x: 950
+        y: 675.1093612425979
+      positionAbsolute:
+        x: 950
+        y: 675.1093612425979
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 73042c9c-f5f8-486b-ab43-62954e0d3a9e
+            value: a
+            varType: string
+            variable_selector:
+            - sys
+            - workflow_id
+          id: 'true'
+          logical_operator: and
+        - case_id: aef3e752-b780-4883-9b76-6d2a2993faef
+          conditions:
+          - comparison_operator: '='
+            id: 27264217-3591-409b-89b8-7316d287ff18
+            value: '200'
+            varType: number
+            variable_selector:
+            - '1747814635687'
+            - status_code
+          id: aef3e752-b780-4883-9b76-6d2a2993faef
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 174
+      id: '1747814160742'
+      position:
+        x: 1250
+        y: 1053.5404424866363
+      positionAbsolute:
+        x: 1250
+        y: 1053.5404424866363
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        advanced_settings:
+          group_enabled: true
+          groups:
+          - groupId: c886bf64-2a14-4c27-916d-1aa224b69325
+            group_name: G1
+            output_type: string
+            variables:
+            - - '1747814304087'
+              - result
+            - - '1747814259670'
+              - result
+        desc: ''
+        output_type: string
+        selected: false
+        title: Variable Aggregator
+        type: variable-aggregator
+        variables:
+        - - '1747814304087'
+          - result2
+      height: 130
+      id: '1747814213322'
+      position:
+        x: 1283.9715237306746
+        y: -72.37745927899181
+      positionAbsolute:
+        x: 1283.9715237306746
+        y: -72.37745927899181
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"result\": \"result\"\
+          ,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: Generate variable
+        type: code
+        variables: []
+      height: 54
+      id: '1747814259670'
+      position:
+        x: 983.9715237306746
+        y: -72.37745927899181
+      positionAbsolute:
+        x: 983.9715237306746
+        y: -72.37745927899181
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"result2\": \"result2\"\
+          ,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result2:
+            children: null
+            type: string
+        selected: false
+        title: Generate variable 2
+        type: code
+        variables: []
+      height: 54
+      id: '1747814304087'
+      position:
+        x: 983.9715237306746
+        y: 5.271737819692646
+      positionAbsolute:
+        x: 983.9715237306746
+        y: 5.271737819692646
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: false
+        selected: false
+        title: Doc Extractor
+        type: document-extractor
+        variable_selector:
+        - sys
+        - files
+      height: 92
+      id: '1747814413020'
+      position:
+        x: 1317.5468062129898
+        y: 172.61163315995015
+      positionAbsolute:
+        x: 1317.5468062129898
+        y: 172.61163315995015
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        instruction: 'try generate something bases on input.
+
+
+          the output should be 20-40 words long.'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        parameters:
+        - description: extracted from llm output
+          name: output
+          required: false
+          type: string
+        query:
+        - '1747736480496'
+        - text
+        reasoning_mode: prompt
+        selected: false
+        title: Parameter Extractor
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1747814521403'
+      position:
+        x: 1651.5183299436644
+        y: 323.0569525386512
+      positionAbsolute:
+        x: 1651.5183299436644
+        y: 323.0569525386512
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          connect: 2
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+          read: 2
+          write: 2
+        title: HTTP Request
+        type: http-request
+        url: https://www.cumen.fun/
+        variables: []
+      height: 124
+      id: '1747814635687'
+      position:
+        x: 950
+        y: 1053.5404424866363
+      positionAbsolute:
+        x: 950
+        y: 1053.5404424866363
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        extract_by:
+          enabled: false
+          serial: '1'
+        filter_by:
+          conditions:
+          - comparison_operator: contains
+            key: ''
+            value: A
+          enabled: true
+        item_var_type: string
+        limit:
+          enabled: false
+          size: 10
+        order_by:
+          enabled: false
+          key: ''
+          value: asc
+        selected: false
+        title: List Operator
+        type: list-operator
+        var_type: array[string]
+        variable:
+        - '1747813890629'
+        - ascii_chars
+      height: 92
+      id: '1747814691972'
+      position:
+        x: 1034.5119662173106
+        y: -329
+      positionAbsolute:
+        x: 1034.5119662173106
+        y: -329
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: b729e565-0b95-4059-a926-92d21c146318
+          role: system
+          text: 'before var ref.{{#1747829667553.result#}}.after var ref
+
+
+            {{#sys.workflow_id#}}'
+        selected: false
+        title: LLM with var ref
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1747829548239'
+      position:
+        x: 2332.7444976468923
+        y: -553
+      positionAbsolute:
+        x: 2332.7444976468923
+        y: -553
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main() -> dict:\n    return {\n        \"result\": \"import this;\"\
+          \n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: Code before loop
+        type: code
+        variables: []
+      height: 54
+      id: '1747829667553'
+      position:
+        x: 650
+        y: -553
+      positionAbsolute:
+        x: 650
+        y: -553
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - sys
+          - workflow_id
+          variable_selector:
+          - conversation
+          - conv_a
+          write_mode: over-write
+        selected: false
+        title: Variable Assigner
+        type: assigner
+        version: '2'
+      height: 88
+      id: '1747893904496'
+      position:
+        x: 2039.3796258466614
+        y: 145.26198378938034
+      positionAbsolute:
+        x: 2039.3796258466614
+        y: 145.26198378938034
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -923.8366941490513
+      y: 424.74886087340684
+      zoom: 0.4388559743007049
