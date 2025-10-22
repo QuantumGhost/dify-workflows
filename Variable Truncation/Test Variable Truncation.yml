@@ -1,0 +1,198 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: Test Variable Truncation
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.4.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 5
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: 1761122219244-source-1761125099588-target
+      source: '1761122219244'
+      sourceHandle: source
+      target: '1761125099588'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: answer
+      id: 1761125099588-source-answer-target
+      source: '1761125099588'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: list_size
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: list_size
+        - default: ''
+          hint: ''
+          label: obj_size
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: obj_size
+        - default: '1'
+          hint: ''
+          label: elem_repeat
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: elem_repeat
+      height: 140
+      id: '1761122219244'
+      position:
+        x: -2.8571428571428896
+        y: 19
+      positionAbsolute:
+        x: -2.8571428571428896
+        y: 19
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: 'list: {{#1761125099588.list#}}
+
+          object: {{#1761125099588.object#}}'
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 122
+      id: answer
+      position:
+        x: 676.8571428571429
+        y: 19
+      positionAbsolute:
+        x: 676.8571428571429
+        y: 19
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "\ndef main(list_size: int, obj_size: int, elem_repeat: int):\n    return\
+          \ {\n        \"list\":[''.join(str(i) for _ in range(elem_repeat)) for i\
+          \ in range(list_size)],\n        \"object\": {str(i): ''.join(str(i) for\
+          \ _ in range(elem_repeat)) for i in range(obj_size)}\n    }\n"
+        code_language: python3
+        outputs:
+          list:
+            children: null
+            type: array[string]
+          object:
+            children: null
+            type: object
+        selected: false
+        title: Code
+        type: code
+        variables:
+        - value_selector:
+          - '1761122219244'
+          - list_size
+          value_type: string
+          variable: list_size
+        - value_selector:
+          - '1761122219244'
+          - obj_size
+          value_type: number
+          variable: obj_size
+        - value_selector:
+          - '1761122219244'
+          - elem_repeat
+          value_type: number
+          variable: elem_repeat
+      height: 52
+      id: '1761125099588'
+      position:
+        x: 344.8571428571429
+        y: 19
+      positionAbsolute:
+        x: 344.8571428571429
+        y: 19
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 93.49999999999994
+      y: 383
+      zoom: 0.7
+  rag_pipeline_variables: []
